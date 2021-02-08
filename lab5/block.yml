@@ -1,0 +1,27 @@
+---
+- name: testing blocks
+  hosts: all
+  remote_user: alfonso
+  become: yes
+  become_method: sudo
+
+  tasks:
+    - block:
+       - name: coying in a block
+         copy:
+           content: "This playbook is a block tests"
+           dest: /tmp/block.txt
+      rescue:
+       - debug:
+           msg: "Stop. Error time"
+      always:
+       - debug:
+           msg: "This message will always display"
+
+      when: ansible_os_family=="RedHat"
+
+    - block:
+       - block:
+          - block:
+             - debug:
+                msg: "testing some blocks"
