@@ -1,0 +1,43 @@
+---
+- name: testing filters
+  hosts: all
+  remote_user: alfonso
+  become: yes
+  become_method: sudo
+
+  vars:
+    superheroes: ['Batman', 'Flash', 'Ironman', 'DareDevil', 'Spiderman', 'Superman']
+    avengers: ['Ironman', 'Captain America', 'Hulk', 'Spiderman', 'Thor', 'Dr Strange']
+
+  tasks:
+  - name: echo
+    shell: echo $PATH
+    register: result
+
+  - debug:
+      msg: "The play failed"
+    when: result | failed
+
+  - debug:
+      msg: "The play succeeded"
+    when: result|success
+
+  - debug:
+      msg: "The play skipped"
+    when: result|skipped
+
+  - debug:
+      msg: "The play changed"
+    when: result|changed
+
+  - debug:
+      msg: "{{ superheroes | unique }}"
+
+  - debug:
+      msg: "{{ superheroes | difference(avengers) }}"
+
+  - debug:
+      msg: "{{ superheroes | union(avengers) }}"
+
+
+

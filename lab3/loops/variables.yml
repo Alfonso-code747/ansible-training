@@ -1,0 +1,8 @@
+---
+
+ansible_env: 
+  ansibleversion: 2.9
+  nombre1: Alfonso
+  apellido1: Fernandez
+  nombre2: Cesar
+  apellido2: Palomares

@@ -6,17 +6,16 @@
   become_method: sudo
 
   vars:
-    mariadb_port: 3307
+    mariadb_port: 3306
 
   tasks:
   - name: install mariadb
     yum: 
-      name: {{items}}
+      name:
+        - mariadb-server
+        - python3-libselinux
+
       state: installed
-    with_items:
-    - mariadb-server
-    - MySQL-python
-    - libselinux-python
 
 
   - name: create mysql configuration file

@@ -1,0 +1,23 @@
+---
+- name: testing filters
+  hosts: all
+  remote_user: alfonso
+  become: yes
+  become_method: sudo
+
+  vars:
+    superheroes: ['Batman', 'Flash', 'Ironman', 'DareDevil', 'Spiderman', 'Superman']
+    avengers: ['Ironman', 'Captain America', 'Hulk', 'Spiderman', 'Thor', 'Dr Strange']
+
+  tasks:
+  - debug:
+      msg: "{{ superheroes | unique }}"
+
+  - debug:
+      msg: "{{ superheroes | difference(avengers) }}"
+
+  - debug:
+      msg: "{{ superheroes | union(avengers) }}"
+
+
+

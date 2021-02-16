@@ -7,7 +7,7 @@
 
   tasks:
     - block:
-       - name: coying in a block
+       - name: copying in a block
          copy:
            content: "This playbook is a block tests"
            dest: /tmp/block.txt

@@ -1,11 +1,20 @@
 ---
-- name: install and configure mariadb
+- name: Testing loops
   hosts: all
   remote_user: alfonso
   become: yes
   become_method: sudo
 
   tasks:
+
+  - name: including variables
+    include_vars:
+      file: variables.yml
+
+  - name: looping over environment facts
+    debug: msg={{ item.key }}={{ item.value }}
+    with_dict: "{{ ansible_env }}"
+
   - name: looping over files and the copy
     copy: src={{item}} dest=/tmp/loops
     with_fileglob: "/tmp/*.conf"
