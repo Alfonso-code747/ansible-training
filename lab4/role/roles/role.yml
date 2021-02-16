@@ -1,0 +1,26 @@
+---
+- name: install mariadb
+  yum:
+    name: mariadb-server
+    state: latest
+
+- name: create mysql configuration file
+  template:
+     src: mariadb-server.cnf.j2
+     dest: /etc/my.cnf.d/mariadb-server.cnf
+  notify: restart mariadb
+
+- name: create mariadb log file
+    file:
+       path: /var/log/mariadb/mariadb.log
+       state: touch
+       owner: mysql
+       group: mysql
+       mode: 644
+
+- name: start mariadb service
+    systemd:
+       name: mariadb
+       state: started
+       enabled: yes
+
