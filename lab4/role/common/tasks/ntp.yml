@@ -1,0 +1,17 @@
+---
+- name: install ntp
+  yum:
+    name: chrony
+    state: present
+
+- name: configure ntp file
+  template:
+    src: chrony.conf.j2
+    dest: "{{ path_ntp }}/ntp.conf"
+  notify: restart chrony
+
+- name: start the ntp service
+  service:
+     name: chronyd
+     state: started
+     enabled: yes

@@ -11,16 +11,16 @@
   notify: restart mariadb
 
 - name: create mariadb log file
-    file:
-       path: /var/log/mariadb/mariadb.log
-       state: touch
-       owner: mysql
-       group: mysql
-       mode: 644
+  file:
+     path: /var/log/mariadb/mariadb.log
+     state: touch
+     owner: mysql
+     group: mysql
+     mode: 644
 
 - name: start mariadb service
-    systemd:
-       name: mariadb
-       state: started
-       enabled: yes
+  systemd:
+     name: mariadb
+     state: started
+     enabled: yes
 
