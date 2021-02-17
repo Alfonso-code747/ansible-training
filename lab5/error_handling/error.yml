@@ -1,0 +1,36 @@
+---
+- name: testing error handling
+  hosts: all
+  remote_user: alfonso
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: testing ignore errors
+    user:
+      name: alfonso
+      password: "{{ Password }}"
+    ignore_errors: yes
+
+  - name: next task
+    shell: echo hello world
+
+  - name: quick echo
+    shell: echo $PATH
+    register: result
+    changed_when: false
+
+  - debug:
+       msg: "Stop running playbook if the play failed"
+    failed_when: "'Failed' in result.stdout"
+
+  - name: echo failed
+    shell: echo I failed
+    register: output
+
+  - debug:
+       msg: "Okay really stop the playbook"
+    failed_when: output.stdout.find('failed')!=-1
+
+  - name: just adding another task in here to show you that it will stop
+    shell: echo hello world

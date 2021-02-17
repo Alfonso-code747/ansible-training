@@ -1,0 +1,9 @@
+---
+- name: deploy common and mariadb role
+  hosts: all
+  remote_user: alfonso
+  become_method: sudo
+  become: yes
+
+  roles:
+  - php

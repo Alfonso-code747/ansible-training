@@ -1,0 +1,5 @@
+ansible_user: alfonso
+ansible_password: alfonso123
+anisble_port: 5968
+ansible_connection: winrm
+ansible_winrm_server_cert_validation: ignore

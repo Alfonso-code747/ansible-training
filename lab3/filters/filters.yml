@@ -16,19 +16,19 @@
 
   - debug:
       msg: "The play failed"
-    when: result | failed
+    when: "'Failed' in result.stdout"
 
   - debug:
       msg: "The play succeeded"
-    when: result|success
+    when: "'Success' in result.stdout"
 
   - debug:
       msg: "The play skipped"
-    when: result|skipped
+    when: "'Skipped' in result.stdout"
 
   - debug:
       msg: "The play changed"
-    when: result|changed
+    when: "'Changed' in result.stdout"
 
   - debug:
       msg: "{{ superheroes | unique }}"
