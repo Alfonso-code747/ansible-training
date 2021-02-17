@@ -1,0 +1,34 @@
+---
+- name: test delegate
+  hosts: all
+  remote_user: alfonso
+  become_method: sudo
+  become: yes
+
+  tasks:
+  - name: restart machine
+    shell: sleep 2 && shutdown -r now "Ansible updates have happened"
+    async: 1
+    poll: 0
+    ignore_errors: True
+
+  - name: waiting for server to come back
+    wait_for:
+      host: centosserver2
+      state: started
+      delay: 30
+      timeout: 300
+      become: no
+      delegate_to: 192.168.15.3
+
+- name: testing delegate facts
+  hosts: all
+  remote_user: alfonso
+  become_method: sudo
+  become: yes
+
+  tasks:
+  - name: gather local facts
+    setup:
+    delegate_to: 192.268.15.3
+    delegate_facts: true

@@ -4,6 +4,7 @@
   remote_user: alfonso
   become_method: sudo
   become: yes
+  become_user: alfonso
 
   roles:
   - common
