@@ -1,7 +1,8 @@
 ---
 - name: testing blocks
   hosts: all
- 
+  remote_user: alfonso
+
   tasks:
     - block:
        - name: copying in a block
