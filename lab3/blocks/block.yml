@@ -2,8 +2,7 @@
 - name: testing blocks
   hosts: all
   remote_user: alfonso
-  become: yes
-  become_method: sudo
+
 
   tasks:
     - block:
