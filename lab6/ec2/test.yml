@@ -1,0 +1,12 @@
+--- 
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+  - name: search for the latest rhel 8 ami
+    ec2_ami_facts:
+     region: us-west-1
+     owner: "309956199498"
+     name: "RHEL-8.*"
+    register: find_results
