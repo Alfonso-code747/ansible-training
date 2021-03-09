@@ -1,0 +1,20 @@
+---
+- name: launching an ec2 instance
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars_files:
+   - keypair.yml
+
+  tasks:
+  - name: gather information about an AMI using ami-id
+    ec2_ami_info:
+      image_ids: ami-046f945327162681c 
+      aws_access_key: "{{ ec2_access_key }}"
+      aws_secret_key: "{{ ec2_secret_key }}"
+      region: eu-west-1
+    register: find_results
+
+  - debug:
+      var: find_results
