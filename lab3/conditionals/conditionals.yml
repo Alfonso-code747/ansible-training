@@ -1,8 +1,6 @@
 - name: testing conditionals
   hosts: all
   remote_user: alfonso
-  become: yes
-  become_method: sudo
 
   tasks:
   - name: don't install on debian machines
