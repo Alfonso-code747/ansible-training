@@ -1,6 +1,5 @@
 - name: testing conditionals
   hosts: all
-  remote_user: alfonso
 
   tasks:
   - name: don't install on debian machines
