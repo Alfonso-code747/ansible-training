@@ -1,9 +1,6 @@
 ---
 - name: install and configure mariadb
   hosts: all
-  remote_user: alfonso
-  become: yes
-  become_method: sudo
 
   vars:
     mariadb_port: 3306
