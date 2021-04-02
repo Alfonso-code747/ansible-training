@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  vars:
+    - number: 10
+  tasks:
+    - debug:
+         msg:  "Hostname {{ ansible_hostname }} FQDN {{ ansible_fqdn }}"
+    - command: uptime
+      register: exit
+    - debug:
+         var: exit
+    - fail:
+         msg: "Number is not 10"
+      when: number != 10
+    - pause:
+         prompt: "Check the APP"
+         seconds: 2
+    - assert:
+         msg: "Number between 0 and 100"
+         that:
+           - number <=100
+           - number > 0

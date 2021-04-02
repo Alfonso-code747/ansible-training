@@ -1,0 +1,17 @@
+---
+- name: Update sshd_config configuration
+  hosts: localhost
+  remote_user: alfonso
+  tasks:
+    - name: Copy file
+      copy:
+        src: sshd_config
+        dest: /home/alfonso/repos/ansible-training/udemy/sshd_config
+      when: ansible_distribution == "Ubuntu"
+      notify: restart_sshd
+
+  handlers:
+    - name: restart_sshd
+      service:
+        name: sshd
+        state: restarted

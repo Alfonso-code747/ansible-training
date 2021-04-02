@@ -1,0 +1,10 @@
+---
+- name: Pip and easy_install
+  hosts: 192.168.15.3
+  become: true
+  tasks:
+
+     - name: Install request module
+       pip:
+          name: request
+          state: latest

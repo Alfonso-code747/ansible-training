@@ -1,0 +1,14 @@
+---
+- name: Variables Playbook
+  hosts: localhost
+  connection: local
+  vars:
+    - miip: 192.168.15.2
+  tasks:
+    - name: Create hosts file
+      template:
+        src: hosts.j2
+        dest: /tmp/hosts
+
+    - debug:
+        var: miip

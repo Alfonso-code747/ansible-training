@@ -1,0 +1,19 @@
+---
+- name: Command Module
+  hosts: localhost
+  tasks:
+     - script: /usr/local/src/uptime.sh
+     - shell: uptime >> uptime.log
+       args:
+         chdir: /tmp
+     - command: uname -a 
+
+     - name: install pexpect
+       pip:
+         name: pexpect
+         state: latest
+
+     - expect:
+        command: passwd lucia
+        responses:
+          (?i)password: "lucia123"

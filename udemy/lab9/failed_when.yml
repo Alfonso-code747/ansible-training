@@ -1,0 +1,10 @@
+---
+- name: Failed when Playbook
+  hosts: localhost
+  tasks:
+     - name: Network Interfaces
+       command: ip a
+       register: network
+       failed_when: "'enp0s3' not in network.stdout"
+       changed_when: False
+

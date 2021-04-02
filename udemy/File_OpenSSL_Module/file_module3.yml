@@ -1,0 +1,16 @@
+---
+- name: File and Openssl modules
+  hosts: centosserver2
+  become: true
+  tasks:
+     - name: Disable SELinux
+       lineinfile:
+           path: /etc/selinux/config
+           regexp: "^SELINUX="
+           line: "SELINUX=enabled"
+
+     - name: Delete group from sudoers
+       lineinfile:
+           path: /etc/sudoers
+           state: absent
+           regexp: "^%wheel"

@@ -1,0 +1,32 @@
+---
+- name: File and Openssl modules
+  hosts: 192.168.15.3
+  become: true
+  tasks:
+     - name: Create file
+       copy: 
+         content: "This is an example2"
+         dest: "/tmp/text.txt"
+         backup: yes
+
+     - name: File Properties
+       file:
+         path: "/tmp/text.txt"
+         state: absent
+         backup: yes
+
+     - name: Directory exist
+       file:
+         path: "/var/log/journal"
+         state: directory
+         owner: root
+         group: alfonso
+         mode: 2755
+
+     - name: Using stat
+       stat:
+         path: /etc/services
+       register: using_stat
+
+     - debug:
+         var: using_stat 

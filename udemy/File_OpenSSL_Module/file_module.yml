@@ -1,0 +1,17 @@
+---
+- name: File and Openssl modules
+  hosts: centosserver2
+  become: true
+  tasks:
+     - name: Create file
+       copy: 
+         content: "This is an example2"
+         dest: "/tmp/text.txt"
+         backup: yes
+
+     - name: File Properties
+       file:
+         path: "/tmp/text.txt"
+         backup: yes
+         mode: 777
+         owner: alfonso

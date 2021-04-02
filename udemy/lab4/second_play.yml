@@ -1,0 +1,10 @@
+---
+- name: install LFTP
+  hosts: centosserver2
+  remote_user: alfonso
+  become: True
+  tasks:
+    - name: Install lftp
+      yum:
+        name: lftp
+        state: latest

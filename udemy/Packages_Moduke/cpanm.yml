@@ -1,0 +1,13 @@
+---
+- name: Cpanm package
+  hosts: 192.168.15.3
+  become: true
+  tasks:
+     - name: Install cpanm
+       yum:
+         name: perl-App-cpanminus
+         state: latest
+
+     - name: Install DBI
+       cpanm:
+         name: DBI

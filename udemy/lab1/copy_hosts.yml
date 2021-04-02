@@ -1,0 +1,21 @@
+---
+- name: copy file /etc/test.txt to the servers
+  hosts: all:!centosserver1
+  remote_user: alfonso
+  become: true
+  tasks:
+    - name: copy file
+      copy:
+        src: /etc/test.txt
+        dest: /etc/
+
+- name: PlayBook 2
+  hosts: all:!centosserver2
+  remote_user: alfonso
+  become: true
+  tasks:
+    - name: copy file again
+      copy:
+        src: /etc/test.txt
+        dest: /etc/
+

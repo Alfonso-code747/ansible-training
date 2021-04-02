@@ -1,0 +1,14 @@
+---
+- name: Include Playbook
+  hosts: centosserver2
+  remote_user: alfonso
+  become: true
+  tasks:
+    - name: Vim install
+      yum:
+        name: vim
+        state: latest
+    - include: apache2_install.yml
+
+- name: Second Play
+  include: second_play.yml

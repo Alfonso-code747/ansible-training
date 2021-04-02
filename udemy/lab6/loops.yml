@@ -1,0 +1,21 @@
+---
+- name: Install software with loops
+  hosts: centosserver2
+  remote_user: alfonso
+  become: true
+  tasks:
+    - name: Install packages
+      yum:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - vim
+        - mariadb-server
+
+    - name: Create users
+      user:
+        name: "{{ item.name }}}"
+        groups: "{{ item.group }}"
+      with_items:
+        - { name: usuario1, group: alfonso }
+        - { name: usuario2, group: alfonso }

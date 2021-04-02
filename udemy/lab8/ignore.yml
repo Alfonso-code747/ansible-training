@@ -1,0 +1,12 @@
+---
+- name: Playbook for register
+  hosts: localhost
+  tasks:
+     - name: cat command
+       command: cat /etc/hosts2
+       register: exit
+       ignore_errors: True
+
+     - name: Check variable
+       debug:
+          var: exit.stderr

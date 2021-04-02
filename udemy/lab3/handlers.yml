@@ -1,0 +1,16 @@
+---
+- name: Update sshd_config configuration
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Copy file
+      copy:
+        src: sshd_config
+        dest: /home/alfonso/repos/ansible-training/udemy/sshd_config
+      notify: restart_sshd
+
+  handlers:
+    - name: restart_sshd
+      service:
+        name: sshd
+        state: restarted
