@@ -1,0 +1,15 @@
+---
+- hosts: 192.168.15.3
+  become: true
+  tasks:
+     - name: enable http/https
+       firewalld:
+           state: enabled
+           service: "{{ item }}"
+           permanent: True
+       delegate_to: localhost
+       with_items:
+           - "http"
+           - "https"
+
+

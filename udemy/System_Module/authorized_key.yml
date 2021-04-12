@@ -1,0 +1,9 @@
+---
+- hosts: 192.168.15.3
+  become: true
+  tasks:
+      - name: Authorized user Alfonso
+        authorized_key:
+            user: alfonso
+            key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDE51r2lr8op7cJM29tLOZD3aRyLYK+BBsc8nDOkLaiSinzq+QBuKagt+ntR6nhXQQgNiNOjFfwaiEA5DjMn8ZrXIrZYR1vkjnArpZGeMAJ+AGIk2+RFfoYDUysJ5Nn6QFlfO42TRNkUsuHOc1uJkwvQmWepzGV8T+UD6Ddna6EZMoOUVPmSUXZJaR1Vs5HEErOakwIW2KZd0zMtXUyYX9xm4wTJIWmY9rQYFI/Dp9NF4/EItv5+PttEy2VwndEbcJ1rse8YFvQJy9dG4XaMLRN/ujMfR74Rvp/tu2z3MswpKbNrwCl5Ix0sKuotpYWnDOZtxkV8j00izx/Ef2vmuqlbC44ueL+ERHW01EeZ41cMWe8ZICwyvoCl4xDlaz/Vwn1P1K3i2dyvzw6xIApW+6TBYgW2h1KEGHTcYT5HhyYXFk62OZHqDwS9FAhItCSO7RworqmBLX+mynXGaggxcDtHbIfro/EI6kvxF+3SWWBhFW+K/QL3dT9hW4uqaiQ52c= alfonso@centos-server-1"
+

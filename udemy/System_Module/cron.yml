@@ -1,0 +1,12 @@
+---
+- hosts: 192.168.15.3
+  become: true
+  tasks:
+     - name: Cron Backup
+       cron:
+         name: "Create backup"
+         hour: 2
+         minute: 0
+         job: "/root/scripts/backup.sh"
+         cron_file: create_backup
+         user: root

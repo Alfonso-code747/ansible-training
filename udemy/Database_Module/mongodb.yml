@@ -1,0 +1,8 @@
+---
+- hosts: 192.168.15.3
+  become: True
+  tasks:
+     - mongodb_user:
+          name: alfonso
+          password: alfonso6789
+          database: admin

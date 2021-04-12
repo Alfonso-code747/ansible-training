@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+     - group:
+          name: Ansible
+          state: present
+          gid: 185
+

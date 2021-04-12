@@ -1,0 +1,18 @@
+---
+- hosts: 192.168.15.3
+  become: true
+  tasks:
+    - mysql_db:
+         name: testdb
+         state: present
+    - mysql_user:
+         name: alfonso
+         password: alfonso678
+         state: present
+         priv: "testdb.*:ALL"
+    - mysql_db:
+         name: all
+         state: dump
+         target: /tmp/{{ ansible_hostname }}.sql
+
+

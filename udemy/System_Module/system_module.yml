@@ -1,0 +1,16 @@
+---
+- hosts: 192.168.15.3
+  become: true
+  tasks:
+     - debug:
+         var: ansible_hostname
+     - hostname:
+         name: centos-server-2
+     - ping:
+     - setup:
+     - debug:
+         var: ansible_hostname
+     - timezone:
+         name: "Europe/Madrid"
+
+

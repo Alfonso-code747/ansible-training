@@ -1,8 +1,7 @@
 ---
 - hosts: localhost
-  vars:
-    - number: 10
   tasks:
+    - include_vars: variables.yml
     - debug:
          msg:  "Hostname {{ ansible_hostname }} FQDN {{ ansible_fqdn }}"
     - command: uptime

@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+     - name: Download ansible examples
+       git:
+          repo: https://github.com/ansible/ansible-examples.git
+          dest: /root/ansible-examples/
+
+     - name: configure vi
+       git_config:
+          name: core.editor
+          value: vim
+          scope: global

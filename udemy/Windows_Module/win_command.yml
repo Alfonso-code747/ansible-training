@@ -1,0 +1,33 @@
+---
+- hosts: windows
+  tasks:
+     - win_command: whoami
+       register: user
+     - debug:
+         var: user
+
+     - win_file:
+         path: c:\Users\alfonso\Documents\apache2\conf\
+         state: directory
+
+     - win_copy:
+         src: /etc/httpd/conf/httpd.conf
+         dest: c:\Users\lfonso\Documents\apache2\conf\httpd.conf
+
+     - win_lineinfile:
+         dest: c:\Users\lfonso\Documents\apache2\conf\httpd.conf
+         state: present
+         line: Listen 8080
+         regexp: "^Listen"
+
+     - win_service:
+         name: spooler
+         state: started
+         start_mode: auto
+
+     - win_user:
+         name: alfonso
+         password: alfonsowindows123
+         state: present
+         groups:
+            - Users

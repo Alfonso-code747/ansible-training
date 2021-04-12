@@ -1,0 +1,33 @@
+---
+- hosts: 192.168.15.3
+  become: true
+  tasks:
+
+     - name: Install postgresql-libs
+       yum:
+         name: 
+           - postgresql-libs
+           - postgresql-devel
+           - python3-devel
+         state: latest    
+
+     - name: Install psycopg2
+       pip:
+         name: psycopg2
+         state: latest
+
+     - name: create database
+       postgresql_db:
+           name: testdb
+           state: present
+           enconding: "UTF-8"
+       become_user: postgres
+
+     - name: create user
+       postgresql_user:
+           name: alfonso
+           state: present
+           password: alfonso789
+           db: testdb
+           priv: ALL
+       become_user: postgres

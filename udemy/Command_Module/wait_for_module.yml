@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks:
+     - name: Wait the file exists
+       wait_for:
+           path: /tmp/exists
+     - name: Wait the file not exists
+       wait_for:
+           path: /tmp/exists
+           state: absent

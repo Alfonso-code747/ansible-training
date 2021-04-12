@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+     - iptables:
+           chain: INPUT
+           source: 0.0.0.0
+           destination_port: 80
+           jump: ACCEPT
+           protocol: tcp

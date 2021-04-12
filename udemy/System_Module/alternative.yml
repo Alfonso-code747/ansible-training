@@ -1,0 +1,8 @@
+---
+- hosts: 192.168.15.3
+  tasks:
+      - name: Use Java 9
+        alternatives:
+            name: java
+            path: /usr/lib/jvm/java-9-openjdk-amd64/bin/java
+
