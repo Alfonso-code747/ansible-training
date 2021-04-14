@@ -3,7 +3,7 @@
 
 This repository is for testing ansible playbooks.
 
-Udemy:
+UDEMY:
 - Command_Module:
 	- Command Module
 	- Set_Fact Module
@@ -67,3 +67,17 @@ Udemy:
 
 - lab9:
 	- Failed_When
+
+EXTRA LABS:
+- lab3:
+	- Blocks
+	- Conditionals
+	- Filters
+	- Intro_playbooks
+	- Loops
+	- Variables
+
+- lab4: 
+	- Includes
+	- Roles
+
