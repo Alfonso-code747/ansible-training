@@ -4,26 +4,26 @@
 This repository is for testing ansible playbooks.
 
 Udemy:
-Command_Module:
+- Command_Module:
 	- Command Module
 	- Set_Fact Module
 	- Utilities Module
 	- Wait_for Module
 
-Database_Module:
+- Database_Module:
 	- Mongodb
 	- MySQL
 	- PostgreSQL
 
-File_OpenSSL_Module:
+- File_OpenSSL_Module:
 	- File and Openssl Modules
 
-Packages_Module:
+- Packages_Module:
 	- Cpanm Module
 	- Pip Module
 	- Yum Module
 
-System_Module:
+- System_Module:
 	- Alternative Module
 	- Authorized_key Module
 	- Cron Module
@@ -35,35 +35,35 @@ System_Module:
 	- System Module
 	- User Module
 
-VCS_Module:
+- VCS_Module:
 	- Git
 	
-Windows_Module:
+- Windows_Module:
 	- Win_Command
 
-lab1:
+- lab1:
 	- Copy Module
 
-lab2:
+- lab2:
 	- Using Variables
 
-lab3:
+- lab3:
 	- Handlers
 
-lab4:
+- lab4:
 	- Includes
 
-lab5:
+- lab5:
 	- Conditionals
 
-lab6:
+- lab6:
 	- Loops
 
-lab7:
+- lab7:
 	- Register 
 
-lab8:
+- lab8:
 	- Ignore
 
-lab9:
+- lab9:
 	- Failed_When
