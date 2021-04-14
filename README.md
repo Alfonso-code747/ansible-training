@@ -81,3 +81,15 @@ EXTRA LABS:
 	- Includes
 	- Roles
 
+- lab5:
+	- Debug
+	- Delegate
+	- Error_handling
+
+- lab6:
+	- EC2
+	- Windows
+
+- lab7:
+	- Nginx
+
