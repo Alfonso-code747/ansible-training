@@ -14,7 +14,7 @@
 
     - name: Create users
       user:
-        name: "{{ item.name }}}"
+        name: "{{ item.name }}"
         groups: "{{ item.group }}"
       with_items:
         - { name: usuario1, group: alfonso }
