@@ -1,5 +1,5 @@
 ---
-- name: Playbook for register
+- name: Playbook for ignore
   hosts: localhost
   tasks:
      - name: cat command
