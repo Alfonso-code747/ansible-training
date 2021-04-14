@@ -16,8 +16,8 @@
      dest: /usr/share/nginx/html/index.html
 
 - name: start Nginx
-  service:
-     name: mariadb
+  systemd:
+     name: nginx
      state: started
      enabled: yes
 
