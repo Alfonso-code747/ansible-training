@@ -9,4 +9,4 @@
      - name: Check variable
        debug:
           var: register_uptime.stdout
-       when: register_uptime | changed
+       when: register_uptime.changed
