@@ -1,5 +1,6 @@
 - name: testing conditionals
-  hosts: all
+  become: true
+  hosts: centosserver2
 
   tasks:
   - name: install on RedHat machines
@@ -17,7 +18,7 @@
       name: mysql_connect_any 
       state: true 
       persistent: yes
-    when: sestatus.rc != 0
+    when: sestatus != 0
 
   - name: checking systemd
     shell: cat /var/log/messages
@@ -25,7 +26,6 @@
 
   - name: next task
     shell: echo "systemd knows when we're doing ansible stuff"
-    when: log_output.stdout.find('ansible') != 0
     register: shell_echo
 
   - debug: 
