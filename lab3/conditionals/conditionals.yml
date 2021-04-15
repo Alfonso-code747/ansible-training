@@ -2,7 +2,7 @@
   hosts: all
 
   tasks:
-  - name: don't install on debian machines
+  - name: install on RedHat machines
     yum: 
       name: httpd 
       state: latest
