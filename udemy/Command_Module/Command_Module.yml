@@ -1,6 +1,7 @@
 ---
 - name: Command Module
   hosts: localhost
+  become: true
   tasks:
      - script: /usr/local/src/uptime.sh
      - shell: uptime >> uptime.log
