@@ -1,6 +1,6 @@
 ---
 - name: install and configure mariadb
-  hosts: all
+  hosts: centosserver2
 
   vars:
     mariadb_port: 3306
